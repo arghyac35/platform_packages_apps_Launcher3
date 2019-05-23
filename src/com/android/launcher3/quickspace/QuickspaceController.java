@@ -25,7 +25,7 @@ import android.provider.Settings;
 import com.android.internal.util.custom.weather.WeatherClient;
 import com.android.internal.util.custom.weather.WeatherClient.WeatherInfo;
 import com.android.internal.util.custom.weather.WeatherClient.WeatherObserver;
-import com.android.internal.util.aosip.aosipUtils;
+import com.android.internal.util.aospextended.AEXUtils;
 
 import java.util.ArrayList;
 
@@ -85,8 +85,8 @@ public class QuickspaceController implements WeatherObserver {
     }
 
     public String getWeatherTemp() {
-        int temperature = mWeatherInfo.getTemperature(!aosipUtils.mccCheck(mContext));
-        String weatherTemp = aosipUtils.mccCheck(mContext) ?
+        int temperature = mWeatherInfo.getTemperature(!AEXUtils.mccCheck(mContext));
+        String weatherTemp = AEXUtils.mccCheck(mContext) ?
                 Integer.toString(temperature) + "°F" :
                 Integer.toString(temperature) + "°C";
         return weatherTemp;
